@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="style-tea.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Teacher Dashboard</h2>
+
+        <label for="department">Select Department:</label>
+        <select id="department" onchange="updateSections()">
+            <option value="">--Select--</option>
+            <option value="IOT">IOT</option>
+            <option value="IT">IT</option>
+        </select>
+
+        <label for="year">Select Year:</label>
+        <select id="year">
+            <option value="">--Select--</option>
+            <option value="1">1st Year</option>
+            <option value="2">2nd Year</option>
+        </select>
+
+        <label for="subject">Select Subject:</label>
+        <select id="subject">
+            <option value="">--Select--</option>
+            <option value="maths">Maths</option>
+            <option value="java">Java</option>
+            <option value="python">Python</option>
+        </select>
+
+        <label for="section">Select Section:</label>
+        <select id="section">
+            <option value="">--Select--</option>
+        </select>
+
+        <button onclick="loadAssignments()">Load Assignments</button>
+
+        <div class="summary">
+            <p>Total Students in Class: <span id="total-students">0</span></p>
+            <p>Total Submitted Assignments: <span id="submitted-count">0</span></p>
+        </div>
+
+        <ul id="assignment-list"></ul>
+
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

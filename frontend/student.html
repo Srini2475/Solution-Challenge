@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="style-st.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Student Dashboard</h2>
+        
+        <div class="assignment-section">
+            <h3>Submit Assignments</h3>
+            
+            <div class="subject-assignment">
+                <label>Math:</label>
+                <input type="file" id="math-assignment">
+                <button onclick="submitAssignment('Math')">Submit</button>
+            </div>
+            
+            <div class="subject-assignment">
+                <label>Java:</label>
+                <input type="file" id="java-assignment">
+                <button onclick="submitAssignment('Java')">Submit</button>
+            </div>
+            
+            <div class="subject-assignment">
+                <label>English:</label>
+                <input type="file" id="english-assignment">
+                <button onclick="submitAssignment('English')">Submit</button>
+            </div>
+            
+            <div class="subject-assignment">
+                <label>Python:</label>
+                <input type="file" id="python-assignment">
+                <button onclick="submitAssignment('Python')">Submit</button>
+            </div>
+            
+            <div class="subject-assignment">
+                <label>C Language:</label>
+                <input type="file" id="c-assignment">
+                <button onclick="submitAssignment('C Language')">Submit</button>
+            </div>
+        </div>
+        
+        <h3>Submitted Assignments</h3>
+        <ul id="student-assignments"></ul>
+        
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

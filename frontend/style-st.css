@@ -1,0 +1,100 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container */
+.container {
+    width: 50%;
+    margin: 50px auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Headings */
+h2 {
+    color: #333;
+}
+
+h3 {
+    color: #555;
+    margin-top: 20px;
+}
+
+/* Assignment Section */
+.assignment-section {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* Subject Assignments */
+.subject-assignment {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+}
+
+.subject-assignment label {
+    font-weight: bold;
+    flex: 1;
+    text-align: left;
+}
+
+input[type="file"] {
+    flex: 2;
+}
+
+input[type="checkbox"] {
+    margin: 0 10px;
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Submitted Assignments */
+#student-assignments {
+    list-style-type: none;
+    padding: 0;
+}
+
+#student-assignments li {
+    background: #e7f3ff;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    text-align: left;
+}
+
+/* Logout Button */
+button:last-child {
+    background: #dc3545;
+    margin-top: 20px;
+}
+
+button:last-child:hover {
+    background: #a71d2a;
+}
