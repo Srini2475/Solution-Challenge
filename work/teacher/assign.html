@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Page - EduGradeAI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f4f4;
+            padding-top: 60px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 900px; /* Increased width */
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        select, input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        textarea {
+            height: 100px; /* More space for assignment input */
+        }
+
+        .btn {
+            background: #1abc9c;
+            color: white;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #16a085;
+        }
+
+        .assignment-list {
+            margin-top: 30px;
+        }
+
+        .assignment-item {
+            background: #eee;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            text-align: left;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #2c3e50;
+            padding: 15px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 22px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 12px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .navbar ul li a:hover {
+            background: #1abc9c;
+            border-radius: 5px;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            background: white;
+            border: 1px solid #ccc;
+            padding: 6px 10px;
+            border-radius: 5px;
+            outline: none;
+            width: 150px;
+        }
+
+        /* Notifications */
+        .notifications {
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* User Profile Dropdown */
+        .profile {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background: white;
+            width: 150px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f0f0f0;
+        }
+
+        /* Dark Mode Toggle */
+        .dark-mode {
+            background: #121212;
+            color: white;
+        }
+
+        .dark-mode .navbar {
+            background: #1e1e1e;
+        }
+
+        /* Mobile Menu */
+        .menu-icon {
+            display: none;
+            font-size: 25px;
+            color: white;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                background: #2c3e50;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/1600x900/?education,technology');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            transition: 0.3s ease;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .stat-box {
+            background: rgba(174, 171, 171, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .stat-box h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .upload-btn {
+            margin-top: 20px;
+            background: #1abc9c;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background: #16a085;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">EduGradeAI</div>
+
+        <span class="menu-icon" onclick="toggleMenu()">☰</span>
+
+        <ul id="menu">
+            <li><input type="text" class="search-bar" placeholder="Search..."></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="assign.html">Assignments</a></li>
+            <li><a href="#">Contact</a></li>
+            <li class="notifications">🔔</li>
+            <li class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</li>
+            <li class="profile">
+                <img src="https://via.placeholder.com/30" alt="User">
+                <div class="dropdown-menu">
+                    <a href="#">Settings</a>
+                    <a href="#">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Assignment</h2>
+        <select id="department">
+            <option value="">Select Department</option>
+            <option value="Computer Science">Computer Science</option>
+            <option value="Information Technology">Information Technology</option>
+            <option value="BME">BME</option>
+            <option value="ECE">ECE</option>
+        </select>
+        
+        <div class="form-group">
+            <label for="title">Create New Assignment Title:</label>
+            <input type="text" id="title" placeholder="Enter assignment title">
+        </div>
+        
+        <div class="form-group">
+            <label for="deadline">Deadline:</label>
+            <input type="date" id="deadline">
+        </div>
+        
+        <button class="btn" onclick="addAssignment()">Assign</button>
+    
+        <div class="assignment-list" id="assignmentList">
+            <h3>Uploaded Assignments</h3>
+            <ol id="assignments"></ol>
+        </div>
+    </div>
+    
+    <script>
+        function addAssignment() {
+            const title = document.getElementById('title').value;
+            const deadline = document.getElementById('deadline').value;
+            
+            if (title && deadline) {
+                const assignmentList = document.getElementById('assignments');
+                const listItem = document.createElement('li');
+                listItem.innerHTML = `${title} - Deadline: ${deadline} 
+                    <textarea placeholder='Enter your answer here' oninput='saveAssignment(this)'></textarea>
+                    <select class='grade-select'>
+                        <option value="">Select Grade</option>
+                        <option value="O">O</option>
+                        <option value="A+">A+</option>
+                        <option value="A">A</option>
+                        <option value="B+">B+</option>
+                        <option value="B">B</option>
+                        <option value="C">C</option>
+                    </select>
+                    <button onclick='gradeAssignment(this)'>Submit Grade</button>
+                    <span class='feedback'></span>`;
+                assignmentList.appendChild(listItem);
+                
+                document.getElementById('title').value = '';
+                document.getElementById('deadline').value = '';
+            } else {
+                alert("Please enter both assignment title and deadline.");
+            }
+        }
+
+        function saveAssignment(textareaElement) {
+            if (textareaElement.value.trim() !== '') {
+                textareaElement.setAttribute('data-saved', 'true');
+            }
+        }
+
+        function gradeAssignment(buttonElement) {
+            const parent = buttonElement.parentElement;
+            const textarea = parent.querySelector('textarea');
+            const gradeSelect = parent.querySelector('.grade-select');
+            const feedbackSpan = parent.querySelector('.feedback');
+            
+            if (textarea.getAttribute('data-saved') === 'true') {
+                if (gradeSelect.value !== "") {
+                    feedbackSpan.textContent = ` - Grade: ${gradeSelect.value} (Feedback: Well done!)`;
+                } else {
+                    alert("Please select a grade before submitting.");
+                }
+            } else {
+                alert("Please enter your answer before grading.");
+            }
+        }
+    </script>
+</body>
+</html> myt

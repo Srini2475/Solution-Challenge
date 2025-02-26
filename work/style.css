@@ -1,0 +1,198 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('bgw.avif') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: rgb(26, 4, 4);
+    padding-right: 20px;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #2c3e50;
+    padding: 15px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.navbar .logo {
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.navbar ul li {
+    margin: 0 15px;
+    position: relative;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    padding: 8px 12px;
+    transition: 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover {
+    background: #1abc9c;
+    border-radius: 5px;
+}
+
+/* Search Bar */
+.search-bar {
+    background: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+}
+
+/* Notifications */
+.notifications {
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+}
+
+/* User Profile Dropdown */
+.profile {
+    position: relative;
+    display: inline-block;
+}
+
+.profile img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background: white;
+    width: 150px;
+    border-radius: 5px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+}
+
+.dropdown-menu a:hover {
+    background: #f0f0f0;
+}
+
+.profile:hover .dropdown-menu {
+    display: block;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    cursor: pointer;
+    color: white;
+    font-size: 18px;
+}
+
+/* Mobile Menu */
+.menu-icon {
+    display: none;
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+.google-btn img {
+    width: 20px;  /* Adjust the size */
+    height: 20px;
+}
+
+
+.logo {
+    height:30px;
+    margin-right: 10px;
+    
+}
+
+.brand-name {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.help-icon {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+
+.container {
+    width: 350px;
+    padding: 20px;
+    padding-right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+
+
+a {
+    text-decoration: none;
+    color: #007BFF;
+}

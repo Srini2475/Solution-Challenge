@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGradeAI - Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #2c3e50;
+            padding: 15px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 22px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 12px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .navbar ul li a:hover {
+            background: #1abc9c;
+            border-radius: 5px;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            background: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 5px;
+        }
+
+        /* Notifications */
+        .notifications {
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* User Profile Dropdown */
+        .profile {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background: white;
+            width: 150px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f0f0f0;
+        }
+
+        .profile:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            cursor: pointer;
+            color: white;
+            font-size: 18px;
+        }
+
+        /* Mobile Menu */
+        .menu-icon {
+            display: none;
+            font-size: 25px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), url('https://source.unsplash.com/1600x900/?education,technology');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            transition: 0.3s ease;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .stat-box {
+            background: rgba(174, 171, 171, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 200px;
+        }
+
+        .stat-box h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .upload-btn {
+            margin-top: 20px;
+            background: #1abc9c;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            font-size: 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .upload-btn:hover {
+            background: #16a085;
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                background: #2c3e50;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+            }
+
+            .navbar ul.active {
+                display: flex;
+            }
+
+            .navbar ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">EduGradeAI</div>
+
+        <span class="menu-icon" onclick="toggleMenu()">☰</span>
+
+        <ul id="menu">
+            <li><input type="text" class="search-bar" placeholder="Search..."></li>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="profile.html">profile</a></li>
+            <li><a href="stu-database.html">Students</a></li>
+            <li><a href="assign.html">Assignments</a></li>
+            <li><a href="#">Contact</a></li>
+            
+            <li class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</li>
+            <li class="profile">
+                <img src="https://via.placeholder.com/30" alt="User">
+                <div class="dropdown-menu">
+                    <a href="#">Settings</a>
+                    <a href="#">Logout</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to EduGradeAI Dashboard</h1>
+        <p>Manage students, assignments, and AI-powered grading effortlessly.</p>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <h2>120</h2>
+                <p>Total Students Enrolled</p>
+            </div>
+            <div class="stat-box">
+                <h2>15</h2>
+                <p>Pending Assignments</p>
+            </div>
+            <div class="stat-box">
+                <h2>5</h2>
+                <p>Recent Submissions</p>
+            </div>
+            <div class="stat-box">
+                <h2>92%</h2>
+                <p>AI Grading Accuracy</p>
+            </div>
+        </div>
+
+        <button class="upload-btn">Upload New Assignment</button>
+    </section>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("active");
+        }
+    </script>
+
+</body>
+</html>

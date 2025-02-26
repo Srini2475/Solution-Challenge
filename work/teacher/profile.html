@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Profile - EduGradeAI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .profile-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            width: 400px;
+            text-align: center;
+        }
+
+        .profile-container h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .profile-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .profile-form label {
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .profile-form input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .profile-form button {
+            margin-top: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .save-btn {
+            background: #1abc9c;
+            color: white;
+        }
+
+        .save-btn:hover {
+            background: #16a085;
+        }
+
+        .reset-btn {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #c0392b;
+        }
+
+        .back-btn {
+            display: block;
+            margin-top: 15px;
+            padding: 8px 15px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: #2980b9;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #2c3e50;
+            padding: 15px 50px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 22px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar ul li {
+            margin: 0 15px;
+            position: relative;
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            padding: 8px 12px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .navbar ul li a:hover {
+            background: #1abc9c;
+            border-radius: 5px;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            background: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 5px;
+        }
+
+        /* Notifications */
+        .notifications {
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* User Profile Dropdown */
+        .profile {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            right: 0;
+            background: white;
+            width: 150px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: black;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f0f0f0;
+        }
+
+        .profile:hover .dropdown-menu {
+            display: block;
+        }
+
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            cursor: pointer;
+            color: white;
+            font-size: 18px;
+        }
+
+        /* Mobile Menu */
+        .menu-icon {
+            display: none;
+            font-size: 25px;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <style>
+    @media screen and (max-width: 768px) {
+        .menu-icon {
+            display: block;
+        }
+
+        .navbar ul {
+            display: none;
+            flex-direction: column;
+            background: #2c3e50;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+        }
+
+        .navbar ul.active {
+            display: flex;
+        }
+
+        .navbar ul li {
+            margin: 10px 0;
+            text-align: center;
+        }\
+    }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="logo">EduGradeAI</div>
+
+    <span class="menu-icon" onclick="toggleMenu()">☰</span>
+
+    <ul id="menu">
+        <li><input type="text" class="search-bar" placeholder="Search..."></li>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="profile.html">profile</a></li>
+        <li><a href="stu-database.html">student</a></li>
+        <li><a href="assign.html">Assignmentd</a></li>
+        
+        <li class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</li>
+        <li class="profile">
+            <img src="https://via.placeholder.com/30" alt="User">
+            <div class="dropdown-menu">
+                <a href="#">Settings</a>
+                <a href="#">Logout</a>
+            </div>
+        </li>
+    </ul>
+</nav>
+
+    <div class="profile-container">
+        <h2>Teacher Profile</h2>
+        <form class="profile-form">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" required>
+
+            <label for="college">College Name</label>
+            <input type="text" id="college" placeholder="Enter your college name" required>
+
+            <label for="experience">Experience (Years)</label>
+            <input type="number" id="experience" placeholder="Enter experience in years" required>
+
+            <label for="qualification">Qualification</label>
+            <input type="text" id="qualification" placeholder="Enter your qualification" required>
+
+            <button type="submit" class="save-btn">Save</button>
+            <button type="reset" class="reset-btn">Reset</button>
+        </form>
+
+        <a href="index.html" class="back-btn">Back to Dashboard</a>
+    </div>
+
+</body>
+</html>
